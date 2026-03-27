@@ -8,7 +8,7 @@ export default function AboutGuavaCreative() {
     const [isInView, setIsInView] = useState(false);
 
     useEffect(() => {
-        // Set isInView to true after component mounts to trigger animations
+        // Set isInView to true after comsponent mounts to trigger animations
         const timer = setTimeout(() => {
             setIsInView(true);
         }, 100);
