@@ -21,6 +21,12 @@
     font-style: normal;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 h1, h2, h3, h4, h5, h6, li, a {
   font-family: "NexaBold", sans-serif;
 }
