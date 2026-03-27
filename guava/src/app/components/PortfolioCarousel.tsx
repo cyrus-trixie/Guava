@@ -176,7 +176,7 @@ export default function PortfolioCarousel({ projects = projectData }: PortfolioC
 
   return (
     <div 
-      className="relative w-full bg-black rounded-t-[50px] overflow-hidden"
+      className="relative w-full bg-black rounded-t-[50px] overflow-hidden min-h-[500px]"
       onMouseMove={updateCursorPosition}
     >
       {/* Custom Cursor */}
