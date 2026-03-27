@@ -1,8 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import { motion, useAnimation, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowLeft, ExternalLink, Plus } from 'lucide-react';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ArrowLeft, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 // Define TypeScript interfaces
@@ -68,7 +68,6 @@ export default function PortfolioCarousel({ projects = projectData }: PortfolioC
   const [isDragging, setIsDragging] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [hoveringNav, setHoveringNav] = useState<"next" | "prev" | false>(false);
-  const controls = useAnimation();
   const carouselRef = useRef<HTMLDivElement>(null);
   
   // Progress bar animation
@@ -177,7 +176,7 @@ export default function PortfolioCarousel({ projects = projectData }: PortfolioC
 
   return (
     <div 
-      className="relative  w-full h-[55vh] bg-black rounded-t-[50px] overflow-hidden"
+      className="relative w-full bg-black rounded-t-[50px] overflow-hidden"
       onMouseMove={updateCursorPosition}
     >
       {/* Custom Cursor */}
@@ -209,15 +208,10 @@ export default function PortfolioCarousel({ projects = projectData }: PortfolioC
         </svg>
       </div>
 
-      
-
       {/* Main carousel */}
-      <div 
-        ref={carouselRef} 
-        className=" h-full"
-      >
+      <div ref={carouselRef}>
         <motion.div
-          className="w-full h-full cursor-grab active:cursor-grabbing"
+          className="w-full cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.1}
@@ -232,7 +226,7 @@ export default function PortfolioCarousel({ projects = projectData }: PortfolioC
               initial="incoming"
               animate="active"
               exit="outgoing"
-              className="absolute inset-0 w-full h-full flex flex-col justify-end"
+              className="relative w-full flex flex-col justify-end"
             >
               {/* Project Image with Parallax Effect */}
               <motion.div 
@@ -327,9 +321,6 @@ export default function PortfolioCarousel({ projects = projectData }: PortfolioC
           <ArrowRight className="w-5 h-5" />
         </motion.button>
       </div>
-      
-      {/* Page counter */}
-     
     </div>
   );
 }
